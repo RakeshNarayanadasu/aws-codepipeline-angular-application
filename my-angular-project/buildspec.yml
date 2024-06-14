@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Installing Angular CLI"
+      - npm install -g @angular/cli@17
+  pre_build:
+    commands:
+      - echo "installing dependencies"
+      - npm install
+  build:
+    commands:
+      - echo "Building the application"
+      - ng build -c production
+artifacts:
+  base-directory: dist/my-angular-project
+  files:
+    '**/*'  # Which files should be included from dist/my-angular-project directory
