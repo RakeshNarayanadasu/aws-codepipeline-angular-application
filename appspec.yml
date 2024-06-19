@@ -1,0 +1,18 @@
+version: 0.0
+os: linux # Operating System of EC2 where we deploy
+files:
+  - source: dist/my-angular-project # Copies all files and folders from revision/build artifact or we can copy specific files and folder also
+    destination: /var/www/my-angular-project # Where to copy on EC2 instance
+permissions: # To set permissions to files/folders
+  - object: /var/www/my-angular-project
+    pattern: '**' # ** means all files and folders
+    mode: '0755' # Similar to chmod 755 /var/www/my-angular-project
+    owner: root # set user root or other
+    group: root # set group
+    type:
+      - file # Includes permissions only to Files
+      - directory # Includes permissions only to directories not files
+hooks:
+  ApplicationStart:
+    - location: scripts/application-start.sh
+      timeout: 300 
