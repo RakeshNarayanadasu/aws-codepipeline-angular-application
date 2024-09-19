@@ -13,9 +13,9 @@ phases:
   build:
     commands:
       - echo "Building the application"
-      - ng build -c production
+      - ng build -c production      # will place all build artifacts under a specific local folder (dist/my-angular-project) in the build environment
 artifacts:
   files:
-    - 'dist/my-angular-project/**/*'  # Which files should be included from dist/my-angular-project directory
+    - 'dist/my-angular-project/**/*'  # Which files should be included from dist/my-angular-project directory. Path varies based on application
     - appspec.yml
     - 'scripts/**/*'
